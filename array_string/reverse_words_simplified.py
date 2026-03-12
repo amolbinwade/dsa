@@ -30,26 +30,27 @@
 # s contains English letters (upper-case and lower-case), digits, and spaces ' '.
 # There is at least one word in s.
 
-class Solution:
+class SimSolution:
     def reverseWords(self, s: str) -> str:
-        stack = []
-        result = []
-        for i in s[::-1]:
-            if(i!=' '):
-                stack.append(i)
-            elif(stack):
-                while(stack):
-                    result.append(stack.pop())
-                result.append(' ')
-        while(stack):
-            result.append(stack.pop())
-        print(result)
-        return "".join(result).rstrip()
+        words = []
+        word = ""
+
+        for c in s:
+            if c != " ":
+                word += c
+            else:
+                if word:
+                    words.append(word)
+                    word = ""
+
+        if word:
+            words.append(word)
+
+        return " ".join(words[::-1])
     
-
 if __name__ == "__main__":
-    from reverse_words import Solution
-    sol = Solution()
-
-    print(sol.reverseWords(' Hello  world '))
+    from reverse_words_simplified import SimSolution
+    sol = SimSolution()
+    res = sol.reverseWords(" Hello Simple World ")
+    print(res)
 
