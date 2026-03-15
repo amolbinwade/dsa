@@ -35,26 +35,26 @@
  
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+
         left = 0
-        right = len(numbers)-1
+        right = len(numbers) - 1
 
         while left < right:
-            snum = target - numbers[left]
-            while numbers[right] > snum:
-                right -= 1
-            if numbers[right] == snum:
+            s = numbers[left] + numbers[right]
+            if s == target:
                 return [left+1, right+1]
-            elif numbers[right] < snum:
+            elif s < target:
                 left += 1
-        return [left+1, right+1]
+            else:
+                right -= 1
 
 
 if __name__ == "__main__":
     from two_sum import Solution
     sol = Solution()
-    arr = [1,2,7,14,16]
+    arr = [1,2,3,4]
 
-    print(sol.twoSum(arr, 16))
+    print(sol.twoSum(arr, 3))
     
 
  
