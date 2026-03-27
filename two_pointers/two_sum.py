@@ -54,7 +54,7 @@ if __name__ == "__main__":
     sol = Solution()
     arr = [1,2,3,4]
 
-    print(sol.twoSum(arr, 3))
+    print(sol.twoSum(arr, 6))
     
 
  
